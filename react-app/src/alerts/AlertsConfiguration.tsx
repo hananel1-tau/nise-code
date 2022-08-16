@@ -5,26 +5,17 @@ import axios from "axios";
 const AlertsConfiguration = (props: any) => {
 
 
-    // const { data: response } = await axios.post(
-        // "https://functionapps20220731210513.azurewebsites.net/api/alert?alertType=NoTelemetry" + 
-        // "&alertEntityType=" + "device" + "&entityId=" + "some_device_id" + "&minutesBack=" + "300", {});
-
         const handleCreateNewAlert = async (event: any) => {
-            // console.log(newDeviceValues);
-            
-            const url = "https://functionapps20220731210513.azurewebsites.net/api/alert?alertType=NoTelemetry" + 
-            "&alertEntityType=" + newAlertValues.entityType + "&entityId=" + newAlertValues.entityID + "&MinutesSinceLast=" + newAlertValues.minutes_threshold;
-            console.log("url: ", url);
 
             const { data: response } = await axios.post(
                 "https://functionapps20220731210513.azurewebsites.net/api/alert?alertType=NoTelemetry" + 
-                "&alertEntityType=" + newAlertValues.entityType + "&entityId=" + newAlertValues.entityID + "&MinutesSinceLast=" + newAlertValues.minutes_threshold , {});
+                "&alertEntityType=" + newAlertValues.entityType + "&entityId=" + newAlertValues.entityID + "&minutesBack=" + newAlertValues.minutes_threshold , {});
     
             console.log(response);
         }
 
     const [newAlertValues, setNewAlertValues] = useState({
-        type: 'NoTelemtry',
+        type: 'NoTelemetry',
         entityType: 'device',
         entityID: "",
         minutes_threshold: 600,
